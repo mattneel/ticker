@@ -1,6 +1,6 @@
 # Ticker
 
-**Simple library for time-based task execution.**
+**Simple Elixir library for time-based task execution.**
 
 ## Installation
 

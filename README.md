@@ -1,6 +1,6 @@
 # Ticker
 
-**TODO: Add description**
+**Simple library for time-based task execution.**
 
 ## Installation
 
@@ -10,7 +10,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
     ```elixir
     def deps do
-      [{:ticker, "~> 0.1.0"}]
+      [{:ticker, github: "mattneel/ticker"}]
     end
     ```
 
@@ -21,4 +21,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
       [applications: [:ticker]]
     end
     ```
-
+3. Add `ticker` to your Supervision tree or start it yourself with `start_link/0`:
+  ```elixir
+    {:ok, pid} = Ticker.start_link
+  ```

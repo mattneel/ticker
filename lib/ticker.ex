@@ -17,7 +17,6 @@ defmodule Ticker do
     target: DateTime.zero,
     times: 0,
     last: DateTime.now,
-    observables: [],
     actions: [],
     fired: false,
     name: "Unnamed Timer"
@@ -27,15 +26,15 @@ defmodule Ticker do
     GenServer.call(__MODULE__, {:state})
   end
 
-  def create_timer(%{} = data) do
+  def create(%{} = data) do
     GenServer.call(__MODULE__, {:create_timer, data})
   end
 
-  def get_timer(id) do
+  def get(id) do
     GenServer.call(__MODULE__, {:get_timer, id})
   end
 
-  def set_timer(id, %{} = data) do
+  def set(id, %{} = data) do
     GenServer.call(__MODULE__, {:set_timer, id, data})
   end
 
@@ -76,7 +75,9 @@ defmodule Ticker do
 
   defp tick_timer(%Timer{} = timer) do
     case {during?(timer), fire?(timer)} do
-      {true, true} -> put_in(put_in(put_in(timer.fired, true).last, DateTime.now).times, timer.times+1)
+      {true, true} ->
+        Enum.map(timer.actions, &(&1.()))
+        put_in(put_in(put_in(timer.fired, true).last, DateTime.now).times, timer.times+1)
       {_, _} -> timer
     end
   end

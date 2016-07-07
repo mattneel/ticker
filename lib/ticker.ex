@@ -7,6 +7,7 @@ defmodule Ticker do
 
   defmodule Timer do
     use Timex
+    @derive [Poison.Encoder]
     defstruct id: nil,
     enabled: true,
     created: DateTime.now,

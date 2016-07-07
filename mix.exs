@@ -27,6 +27,6 @@ defmodule Ticker.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:tzdata, "== 0.1.8", override: true}, {:timex, "~> 2.0"}]
+    [{:tzdata, "== 0.1.8", override: true}, {:poison, "~> 2.0"}, {:timex, "~> 2.0"}]
   end
 end

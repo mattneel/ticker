@@ -14,7 +14,7 @@ defmodule Ticker.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:timex, :tzdata, :logger]]
+    [applications: [:timex, :tzdata, :exconstructor, :logger]]
   end
 
   # Dependencies can be Hex packages:
@@ -27,6 +27,10 @@ defmodule Ticker.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:tzdata, "== 0.1.8", override: true}, {:poison, "~> 2.0"}, {:timex, "~> 2.0"}]
+    [
+      {:tzdata, "== 0.1.8", override: true},
+      {:timex, "~> 2.0"},
+      {:exconstructor, "~> 1.0.2"}
+    ]
   end
 end

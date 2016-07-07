@@ -21,6 +21,7 @@ defmodule Ticker do
     actions: [],
     fired: false,
     name: "Unnamed Timer"
+    use ExConstructor
   end
 
   def state() do
